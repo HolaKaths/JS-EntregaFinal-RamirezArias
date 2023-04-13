@@ -78,6 +78,7 @@ function calcularIMC() {
     // Obtener los valores de peso y altura
     const peso = document.getElementById('peso').value;
     const altura = document.getElementById('altura').value;
+
     // Calcular el IMC
     const imc = (peso / ((altura / 100) ** 2)).toFixed(2);
 
@@ -92,6 +93,29 @@ function calcularIMC() {
                 : imc >= 30 && imc < 35 ? " - Obesidad grado 1"
                     : imc >= 35 && imc < 40 ? " - Obesidad grado 2"
                         : " - Obesidad grado 3";
+}
+
+function calcularIMCGato() {
+    // Obtener los valores de peso y altura
+    const peso = document.getElementById('pesoGato').value;
+    const altura = document.getElementById('alturaGato').value;
+
+    // Calcular el IMC para gatos
+    // El IMC para gatos es diferente al de humanos
+    // Fórmula: IMC = peso (kg) / (altura (m) * altura (m)) * 10000
+    const imc = (peso / ((altura / 100) ** 2)) * 10000;
+
+    // Mostrar el resultado en la página
+    const resultado = document.getElementById('resultadoGato');
+    resultado.textContent = imc.toFixed(2);
+
+    // Evaluar el resultado del IMC para gatos
+    resultado.textContent += imc < 18.5 ? " - Bajo peso para gatos"
+        : imc >= 18.5 && imc < 24.9 ? " - Peso normal para gatos"
+            : imc >= 25 && imc < 29.9 ? " - Sobrepeso para gatos"
+                : imc >= 30 && imc < 34.9 ? " - Obesidad grado 1 para gatos"
+                    : imc >= 35 && imc < 39.9 ? " - Obesidad grado 2 para gatos"
+                        : " - Obesidad grado 3 para gatos";
 }
 
 
@@ -163,11 +187,32 @@ function leerTabla() {
     // Guardar la cadena JSON en el localStorage
     localStorage.setItem('listaObjetosIMC', listaObjetosIMCJson);
 
+    // Obtener la lista de objetos IMC del localStorage
+    const listaObjetosIMCJsonFromLocalStorage = localStorage.getItem('listaObjetosIMC');
+    const listaObjetosIMCFromLocalStorage = JSON.parse(listaObjetosIMCJsonFromLocalStorage) || [];
+
+    // Obtener la lista de edades del localStorage
+    const baseDeDatosJson = localStorage.getItem('BD');
+    const baseDeDatos = JSON.parse(baseDeDatosJson) || [];
+
+    // Agregar edades e IMCs a la base de datos
+    document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        let edad = parseInt(document.querySelector("input[name='edad']").value);
+        let imc = parseFloat(document.querySelector("input[name='imc']").value);
+        listaObjetosIMC.push({ edad, imc });
+        baseDeDatos.push({ edad, imc });
+
+        // Guardar la lista de objetos IMC y la base de datos en el localStorage
+        localStorage.setItem('listaObjetosIMC', JSON.stringify(listaObjetosIMC));
+        localStorage.setItem('BD', JSON.stringify(baseDeDatos));
+    });
+}
+
     if (myChart) {
         myChart.destroy();
     }
     crearGrafico(listaObjetosIMC);
-}
 
 function calcularIMCTabla(listaObjetosIMC) {
     const decimales_IMC = 2;
