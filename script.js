@@ -25,7 +25,21 @@ function calcularEdad() {
                 5.5 * edad + 1.5
     ) : null;
 
-    const resultado = document.getElementById("resultado");
+
+    const resultMessage = `La edad de tu ${animal} ${nombre} en años humanos es ${edadHumana} y su peso ideal estimado a esa edad sería ${peso} kg.`;
+
+    Swal.fire({
+        title: '¡Hola!',
+        text:   resultMessage,
+        imageUrl: './assets/images/mascota.png',
+        imageWidth: 55,
+        imageHeight: 55,
+        imageAlt: 'Logo Pets',
+    });
+
+
+    const resultado = document.getElementById("resultado").addEventListener("click", mostrarResultado);
+   
     resultado.innerHTML = `La edad de tu ${animal} ${nombre} en años humanos es ${edadHumana} y su peso ideal estimado a esa edad sería ${peso} kg.`;
 
     // Guardar en localStorage
@@ -62,6 +76,7 @@ function mostrarResultados() {
         `;
     });
     tabla.innerHTML += "</tbody>";
+
 }
 
 function borrarResultados() {
@@ -142,7 +157,7 @@ function addNewRow() {
 function leerTabla() {
     const valoresTabla = document.querySelectorAll("#imcData tr");
     let listaObjetosIMC = [];
-    
+
 
     for (let index = 1; index < valoresTabla.length; index++) {
         let edad = valoresTabla[index].querySelector("input[name='edad']").value;
