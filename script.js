@@ -8,29 +8,62 @@ function calcularEdad() {
 
     let edadHumana = 0;
     let peso = 0;
+    if (animal === "perro") {
+        if (edad === 1) {
+            edadHumana = 15;
+        } else if (edad === 2) {
+            edadHumana = 24;
+        } else {
+            edadHumana = 24 + (edad - 2) * 4;
+        }
+    
+        if (tamano === "pequeno") {
+            if (edad <= 12) {
+                peso = edad * 2;
+            } else {
+                peso = 24 + (edad - 12) * 1;
+            }
+        } else if (tamano === "mediano") {
+            if (edad <= 12) {
+                peso = edad * 2.5;
+            } else {
+                peso = 30 + (edad - 12) * 1.5;
+            }
+        } else {
+            if (edad <= 12) {
+                peso = edad * 4;
+            } else {
+                peso = 54 + (edad - 12) * 2;
+            }
+        }
+    } else if (animal === "gato") {
+        if (edad === 1) {
+            edadHumana = 15;
+        } else if (edad === 2) {
+            edadHumana = 24;
+        } else {
+            edadHumana = 24 + (edad - 2) * 4;
+        }
+    
+        if (tamano === "pequeno") {
+            peso = 2.5 * edad + 1.5;
+        } else if (tamano === "mediano") {
+            peso = 3.5 * edad + 1.5;
+        } else {
+            peso = 5.5 * edad + 1.5;
+        }
+    } else {
+        // Si el animal no es un perro ni un gato, asignar null a las variables de edadHumana y peso
+        edadHumana = null;
+        peso = null;
+    }
+    
 
-    animal === "perro" ? (
-        edad === 1 ? edadHumana = 15 :
-            edad === 2 ? edadHumana = 24 :
-                edadHumana = 24 + (edad - 2) * 4,
-        peso = tamano === "pequeno" ? (edad <= 12 ? edad * 2 : 24 + (edad - 12) * 1) :
-            tamano === "mediano" ? (edad <= 12 ? edad * 2.5 : 30 + (edad - 12) * 1.5) :
-                edad <= 12 ? edad * 4 : 54 + (edad - 12) * 2
-    ) : animal === "gato" ? (
-        edad === 1 ? edadHumana = 15 :
-            edad === 2 ? edadHumana = 24 :
-                edadHumana = 24 + (edad - 2) * 4,
-        peso = tamano === "pequeno" ? 2.5 * edad + 1.5 :
-            tamano === "mediano" ? 3.5 * edad + 1.5 :
-                5.5 * edad + 1.5
-    ) : null;
-
-
-    const resultMessage = `La edad de tu ${animal} ${nombre} en años humanos es ${edadHumana} y su peso ideal estimado a esa edad sería ${peso} kg.`;
+    const resultMessage = `La edad de tu ${animal} ${nombre} en años humanos es ${edadHumana}`;
 
     Swal.fire({
         title: '¡Hola!',
-        text:   resultMessage,
+        text:   resultMessage, 
         imageUrl: './assets/images/mascota.png',
         imageWidth: 55,
         imageHeight: 55,
