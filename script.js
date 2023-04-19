@@ -58,8 +58,7 @@ function calcularEdad() {
         peso = null;
     }
     
-
-    const resultMessage = `La edad de tu ${animal} ${nombre} en años humanos es ${edadHumana}`;
+    const resultMessage = `La edad de tu ${animal} ${nombre} en años humanos es ${edadHumana} años`;
 
     Swal.fire({
         title: '¡Hola!',
@@ -71,14 +70,28 @@ function calcularEdad() {
     });
 
 
-    const resultado = document.getElementById("resultado").addEventListener("click", mostrarResultado);
-   
+    const resultado = document.getElementById("resultado");
     resultado.innerHTML = `La edad de tu ${animal} ${nombre} en años humanos es ${edadHumana} y su peso ideal estimado a esa edad sería ${peso} kg.`;
 
     // Guardar en localStorage
     const mascotas = JSON.parse(localStorage.getItem("mascotas")) || [];
     mascotas.push({ animal, nombre, edadHumana, peso });
     localStorage.setItem("mascotas", JSON.stringify(mascotas));
+
+    // Crear una función para mostrar el mensaje con SweetAlert
+    const mostrarMensaje = () => {
+        const mensaje = `Tus datos han sido guardados en el historial pet`;
+        Swal.fire({
+            title: '¡Guardado!',
+            text: mensaje,
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    };
+
+    // Agregar setTimeout para llamar a la función de mostrar mensaje después de 2 segundos
+    setTimeout(mostrarMensaje, 2000);
 }
 
 function mostrarResultados() {
@@ -183,7 +196,7 @@ function addNewRow() {
     cell1.appendChild(nuevaEdad);
     cell2.appendChild(nuevoPeso);
     cell3.appendChild(nuevaAltura);
-    cell4.innerHTML = "";
+    cell4.innerHTML = "%";
 }
 
 // Llamar los datos de la tabla
