@@ -61,7 +61,7 @@ function calcularEdad() {
     const resultMessage = `La edad de tu ${animal} ${nombre} en años humanos es ${edadHumana} años`;
 
     // SweetAlert resultado edad
-    // SweetAlert resultado edad
+
     Swal.fire({
         title: '¡Hola!',
         text: resultMessage,
@@ -91,7 +91,7 @@ function calcularEdad() {
 
         setTimeout(mostrarMensaje, 1000);
     });
-    
+
     function mostrarResultados() {
         // Llamar los datos de localStorage
         const mascotas = JSON.parse(localStorage.getItem("mascotas")) || [];
@@ -153,6 +153,7 @@ function calcularEdad() {
                             : " - Obesidad grado 3";
     }
 
+}
 
     function addNewRow() {
         let table = document.getElementById("imcData");
@@ -300,4 +301,3 @@ function calcularEdad() {
             },
         });
     }
-}
