@@ -10,6 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+    </script>
+
     <link href="style.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -64,9 +66,10 @@
                     </form>
                 </div>
 
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" id="search-form" onsubmit="search(event)">
                     <input class="form-control me-2 h5 text-white text-decoration-none" type="search"
-                        placeholder="Busca contenido aquí" aria-label="Search">
+                        placeholder="Busca contenido aquí" aria-label="Search" id="search-input">
+
                     <button class="btn btn-outline-success h5 text-white text-decoration-none" id="buttonsearch"
                         type="submit">Buscar</button>
                 </form>
@@ -81,7 +84,10 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <div class="contenedor">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <div class="contenedor">
         <h1 class="titulo">Calculadora de edad humana para mascotas</h1>
         <form class="formulario">
             <div class="grupo">
@@ -137,9 +143,11 @@
     <br>
     <br>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <div class="contenedor2">
         <title>Calculadora IMC para mascota</title>
-       
+
 
         <h1 class="titulo">Calculadora IMC para mascotas</h1>
 
@@ -153,72 +161,73 @@
             </div>
 
             <br>
-        <p>
-            Para calcular el índice de masa corporal (IMC) de tu mascota, introduce su peso en kilogramos y su altura en
-            centímetros:
-        </p>
-        <div style="overflow-x:auto;">
-
-            <br>
-
-
-            <!-- calculadora de IMC -->
-
-            <form id="formularioIMC">
-                <table class="imcDatacss" id="imcData">
-                    <tr class="header-tables">
-                        <td class="table-header">Edad (años) </td>
-                        <td class="table-header">Peso (kg)</td>
-                        <td class="table-header">Altura (cm)</td>
-                        <td class="table-header"> El IMC es</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="number" class="edad" name="edad" min="1" max="200" step="0.1"
-                                form="formularioIMC" required placeholder="xx">
-                        </td>
-                        <td>
-                            <input type="number" class="peso" name="peso" min="1" max="200" step="0.1"
-                                form="formularioIMC" required placeholder="xx">
-                        </td>
-                        <td>
-                            <input type="number" class="altura" name="altura" min="1" max="200" form="formularioIMC"
-                                required placeholder="xx">
-                        </td>
-                        <td>
-                            <input id="imc" placeholder="%">
-                        </td>
-                    </tr>
-                </table>
-
-
+            <p>
+                Para calcular el índice de masa corporal (IMC) de tu mascota, introduce su peso en kilogramos y su
+                altura en
+                centímetros:
+            </p>
+            <div style="overflow-x:auto;">
 
                 <br>
-                <button type="button" class="boton2" onclick="addNewRow()">Nueva Fila</button>
-
-                <input type="button" class="boton2" value="Calcular" form="formularioIMC" onclick="leerTabla()">
 
 
-            </form>
+                <!-- calculadora de IMC -->
 
-            <!-- fin calculadora -->
+                <form id="formularioIMC">
+                    <table class="imcDatacss" id="imcData">
+                        <tr class="header-tables">
+                            <td class="table-header">Edad (años) </td>
+                            <td class="table-header">Peso (kg)</td>
+                            <td class="table-header">Altura (cm)</td>
+                            <td class="table-header"> El IMC es</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" class="edad" name="edad" min="1" max="200" step="0.1"
+                                    form="formularioIMC" required placeholder="xx">
+                            </td>
+                            <td>
+                                <input type="number" class="peso" name="peso" min="1" max="200" step="0.1"
+                                    form="formularioIMC" required placeholder="xx">
+                            </td>
+                            <td>
+                                <input type="number" class="altura" name="altura" min="1" max="200" form="formularioIMC"
+                                    required placeholder="xx">
+                            </td>
+                            <td>
+                                <input id="imc" placeholder="%">
+                            </td>
+                        </tr>
+                    </table>
 
-            <br>
-            <br>
 
-            <!-- gráfico lineal -->
-            <div class="contenedor3">
 
-                <h1 class="titulo">Historial del IMC de tu mascota </h1>
-                <p>
-                    Aquí podrás ver el seguimiento mes a mes del IMC de tu peludito:
-                </p>
+                    <br>
+                    <button type="button" class="boton2" onclick="addNewRow()">Nueva Fila</button>
 
-                <canvas id="imcChart"></canvas>
+                    <input type="button" class="boton2" value="Calcular" form="formularioIMC" onclick="leerTabla()">
+
+
+                </form>
+
+                <!-- fin calculadora -->
 
                 <br>
+                <br>
+
+                <!-- gráfico lineal -->
+                <div class="contenedor3">
+
+                    <h1 class="titulo">Historial del IMC de tu mascota </h1>
+                    <p>
+                        Aquí podrás ver el seguimiento mes a mes del IMC de tu peludito:
+                    </p>
+
+                    <canvas id="imcChart"></canvas>
+
+                    <br>
+                </div>
             </div>
-        </div>
     </div>
 
 </body>
@@ -252,6 +261,10 @@
     <script src="script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</script>
 
 
 

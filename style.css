@@ -171,6 +171,38 @@ header .navbar {
     background: linear-gradient(to top, #22577A, #38A3A5) no-repeat right/200%;
 }
 
+/* Search bar */
+
+#search-form {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+#search-input {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    width: 15rem;
+    margin-right: 0.5rem;
+}
+
+#buttonsearch {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#buttonsearch:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+
 #imcDatacss table {
 
     text-align: center;
