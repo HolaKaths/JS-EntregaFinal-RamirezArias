@@ -1,5 +1,20 @@
 let myChart;
 
+let url = 'https://api.example.com/data'; // Reemplaza esta URL con la URL que deseas acceder
+
+fetch(url)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // Haz algo con los datos aquí
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
 
 
 function calcularEdad() {
@@ -63,7 +78,6 @@ function calcularEdad() {
     const resultMessage = `La edad de tu ${animal} ${nombre} en años humanos es ${edadHumana} años`;
 
     // SweetAlert resultado edad
-
     Swal.fire({
         title: '¡Hola!',
         text: resultMessage,
@@ -134,18 +148,7 @@ function calcularEdad() {
         tabla.innerHTML = "";
     }
 
-    if (animal === "perro") {
-        // Código para calcular la edad y peso de un perro
-    } else if (animal === "gato") {
-        // Llamar a la función "calcularEdadYPesoGato" para obtener la edad y peso del gato
-        const resultadoGato = calcularIMCGato(edad, tamano);
-        edadHumana = resultadoGato.edadHumana;
-        peso = resultadoGato.peso;
-    } else {
-        // Si el animal no es un perro ni un gato, asignar null a las variables de edadHumana y peso
-        edadHumana = null;
-        peso = null;
-    }
+ 
     function calcularIMC() {
         // Obtener los valores de peso y altura
         const peso = document.getElementById('peso').value;
@@ -270,25 +273,6 @@ function calcularIMCTabla(listaObjetosIMC) {
         listaObjetosIMC[index] = aux;
     }
     return listaObjetosIMC;
-}
-
-function calcularIMCGato() {
-    // Obtener los valores de peso y altura
-    const peso = document.getElementById('pesoGato').value;
-    const altura = document.getElementById('alturaGato').value;
-
-    // Calcular el IMC
-    // Fórmula: IMC = peso (kg) / (altura (m) * altura (m)) * 10000
-    const imc = (peso / ((altura / 100) ** 2)) * 10000;
-
-    // Evaluar el resultado del IMC
-    const mensaje = imc < 18.5 ? "Bajo peso para gatos"
-        : imc >= 18.5 && imc < 24.9 ? "Peso normal para gatos"
-            : imc >= 25 && imc < 29.9 ? "Sobrepeso para gatos"
-                : imc >= 30 && imc < 34.9 ? "Obesidad grado 1 para gatos"
-                    : imc >= 35 && imc < 39.9 ? "Obesidad grado 2 para gatos"
-                        : "Obesidad grado 3 para gatos";
-
 }
 
 function crearGrafico(listaObjetosIMC) {
