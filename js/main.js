@@ -1,22 +1,5 @@
 let myChart;
 
-let url = 'https://holakaths.github.io/JS-EntregaFinal-RamirezArias/';
-
-fetch('https://holakaths.github.io/JS-EntregaFinal-RamirezArias/')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
-
-
 
 function calcularEdad() {
     const animal = document.getElementById("animal").value;
