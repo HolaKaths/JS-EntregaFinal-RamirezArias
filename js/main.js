@@ -1,20 +1,21 @@
 let myChart;
 
-let url = 'https://holakaths.github.io/JS-EntregaFinal-RamirezArias/'; 
+let url = 'https://holakaths.github.io/JS-EntregaFinal-RamirezArias/';
 
 fetch('https://holakaths.github.io/JS-EntregaFinal-RamirezArias/')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data); 
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+
 
 
 function calcularEdad() {
@@ -148,7 +149,7 @@ function calcularEdad() {
         tabla.innerHTML = "";
     }
 
- 
+
     function calcularIMC() {
         // Obtener los valores de peso y altura
         const peso = document.getElementById('peso').value;
