@@ -1,6 +1,7 @@
 let myChart;
 
 
+
 function calcularEdad() {
     const animal = document.getElementById("animal").value;
     const nombre = document.getElementById("nombre").value;

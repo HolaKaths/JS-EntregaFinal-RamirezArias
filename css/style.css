@@ -72,6 +72,21 @@ header .navbar {
     margin-bottom: 2rem;
 }
 
+#main {
+   margin-top: 20px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+      }
+
+      #section2,
+      #section3 {
+        margin-top: 20px;
+       margin-right: 40px;
+       margin-bottom: 20px;
+       margin-left: 40px;
+           }
+      
 .grupo {
     display: flex;
     flex-direction: column;
