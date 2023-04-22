@@ -19,16 +19,17 @@
                 <a class="navbar-brand" href="/index.html"> <img src="../assets/images/mascota.png" height="55px" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active me-2 h5 text-white text-decoration-none" aria-current="page"
+                            <a class="mb-2 nav-link active me-2 h5 text-white text-decoration-none" aria-current="page"
                                 href="/index.html"> Calculadora</a>
-
+                        </li>
+    
                         <li class="nav-item">
                             <a class="nav-link active me-2 h5 text-white text-decoration-none" aria-current="page"
                                 href="../pages/instapets.html">Instapets</a>
@@ -42,14 +43,12 @@
                             <a class="nav-link active me-2 h5 text-white text-decoration-none" aria-current="page"
                                 href="../pages/randompet.html">Random Pet</a>
                         </li>
-
-
                     </ul>
 
                     <div class="col-xs-9 col-lg-1">
                         <form action="./login.html">
                             <button class="me-2 h6 text-white text-decoration-none" id="buttonlogin"
-                                href="../pages/login.html"> Log in
+                                href="../pages/index.html"> Log in
                             </button>
                         </form>
                     </div>
@@ -72,38 +71,33 @@
             </div>
         </nav>
     </header>
-
     &nbsp
-
     <main>
 
-        <section id="section2">
-
-            <div>
-                <h3 class="display-5 justify-content-center align-items-center">
-                    Conoce las mascotas influencers que hacen parte de nuestra comunidad.
-                </h3>
-                <h3 class="display-7 justify-content-center align-items-center">
-                    Si tu mascota tiene un perfil de Instagram, no dudes en colocarla en su perfil y podrá salir en esta
-                    galería.
-
-                    No olvides seguirnos en redes sociales.
-                </h3>
-                &nbsp
+        <div class="container">
+            <div class="row text-center">
+              <div class="col-md-10 offset-md-1">
+                <h1 class="text-center">Hoy queremos regalarte una foto pet </h1>
+                <p id="dogInfo"></p>
+                <h2>¿Cuál será el tuyo?</h2>
+                <div class="alert alert-danger" role="alert"></div>
+                <div id="randomImageContainer"></div>
+                <p class="dogInfo h5">Este será tu foto pet de la suerte...</p>
+                <button class="btn btn-primary random">¡¡Quiero mi pet!</button>
+              </div>    
             </div>
+          </div>
+        
+    </main>
 
-            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    &nbsp
+    <br>
 
-            <div class="elfsight-app-99f16b93-5b40-4c22-b2ad-41b1c5460939"></div>
-
-        </section>
-        <br> <br>
-
-        <br>
-
-        <br>
 
     </main>
+    <br> <br>
+
+    <br>
     <!--Footer-->
     <div class="container-fluid">
         <div id="footer" class="row">
