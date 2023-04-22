@@ -202,7 +202,6 @@ function leerTabla() {
     const valoresTabla = document.querySelectorAll("#imcData tr");
     let listaObjetosIMC = [];
 
-
     for (let index = 1; index < valoresTabla.length; index++) {
         let edad = valoresTabla[index].querySelector("input[name='edad']").value;
         let peso = valoresTabla[index].querySelector("input[name='peso']").value;
@@ -210,6 +209,7 @@ function leerTabla() {
         let imc = 0;
         listaObjetosIMC[index - 1] = { edad, peso, altura, imc };
     }
+    
     listaObjetosIMC = calcularIMCTabla(listaObjetosIMC);
 
     for (let index = 1; index < valoresTabla.length; index++) {
