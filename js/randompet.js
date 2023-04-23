@@ -17,11 +17,17 @@ function getRandomDoggo() {
 }
 
 function handleData(data) {
-  let url = data[0].url;
-  let breedName = data[0].breeds[0].name;
-  imageContainer.innerHTML = `<img alt="random image of a ${breedName}" src='${url}'/>`;
-  document.querySelector('.dogInfo').innerHTML = `<p class="h5">Random image of a ${breedName}</p>`;
-}
+    if (data && data.length > 0 && data[0].breeds && data[0].breeds.length > 0) {
+      let breedName = data[0].breeds[0].name;
+      let url = data[0].url;
+      imageContainer.innerHTML = `<img alt="random image of a ${breedName}" src='${url}'/>`;
+      document.querySelector('.dogInfo').innerHTML = `<p class="h5">Random image of a ${breedName}</p>`;
+    } else {
+      notifyUser('No se encontró ninguna imagen de perro.');
+    }
+  }
+ 
+  
 
 function notifyUser(error) {
   const errorContainer = document.querySelector('.alert');
