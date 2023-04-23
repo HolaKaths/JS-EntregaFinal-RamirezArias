@@ -9,13 +9,6 @@
 
 
     <link href="../css/style.css" type="text/css" rel="stylesheet">
-    <script src="../js/randompet.js"></script>
-    <script>
-        const button = document.querySelector('.random');
-        button.addEventListener('click', () => {
-          getRandomDoggo();
-        });
-      </script>
       
 </head>
 
@@ -82,7 +75,10 @@
     &nbsp
     <main>
 
-        <div class="container">
+        <div class="containerpet">
+
+            <script src="../js/randompet.js"></script>
+
             <div class="row text-center">
               <div class="col-md-10 offset-md-1">
                 <h1 class="text-center">Hoy queremos regalarte una foto pet </h1>
@@ -91,7 +87,8 @@
                 <div class="alert alert-danger" role="alert"></div>
                 <div id="randomImageContainer"></div>
                 <p class="dogInfo h5">Este será tu foto pet de la suerte...</p>
-                <button class="btn btn-primary random">¡¡Quiero mi pet!</button>
+                <button onclick="getRandomDoggo()" class="btn btn-primary random">¡¡Quiero mi pet!</button>
+                
               </div>    
             </div>
           </div>
