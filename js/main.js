@@ -1,6 +1,5 @@
 let myChart;
 
-
 function calcularEdad() {
     const animal = document.getElementById("animal").value;
     const nombre = document.getElementById("nombre").value;
@@ -209,7 +208,7 @@ function leerTabla() {
         let imc = 0;
         listaObjetosIMC[index - 1] = { edad, peso, altura, imc };
     }
-    
+
     listaObjetosIMC = calcularIMCTabla(listaObjetosIMC);
 
     for (let index = 1; index < valoresTabla.length; index++) {
@@ -300,5 +299,7 @@ function crearGrafico(listaObjetosIMC) {
             },
         },
     });
+
+
 
 }
