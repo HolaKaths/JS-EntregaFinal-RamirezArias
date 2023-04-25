@@ -176,7 +176,8 @@ header .navbar {
     box-sizing: border-box;
 }
 
-.btn {
+.btn
+#btn {
     border: none;
     cursor: pointer;
     background-color: #22577A;
